@@ -9,18 +9,27 @@ interface Props {
 
 const ProjectCard = ({ src, title, description }: Props) => {
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]">
-      <Image
-        src={src}
-        alt={title}
-        width={1000}
-        height={1000}
-        className="w-full object-contain"
-      />
+    <div className="flex flex-col md:flex-row overflow-hidden rounded-2xl bg-[#1A1A2E] border border-[#2A0E61] shadow-lg backdrop-blur-lg transition-transform hover:scale-[1.02] duration-300 w-full">
+      
+      {/* Image Section */}
+      <div className="relative w-full h-60 sm:h-72 md:h-auto md:w-1/2">
+        <Image
+          src={src}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
 
-      <div className="relative p-4">
-        <h1 className="text-2xl font-semibold text-white">{title}</h1>
-        <p className="mt-2 text-gray-300">{description}</p>
+      {/* Text Content */}
+      <div className="flex flex-col justify-center p-6 md:w-1/2 text-left">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
+          {title}
+        </h2>
+        <p className="mt-3 sm:mt-4 text-gray-300 text-sm sm:text-base leading-relaxed">
+          {description}
+        </p>
       </div>
     </div>
   );
