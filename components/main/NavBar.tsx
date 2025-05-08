@@ -37,7 +37,7 @@ const Navbar = () => {
           <a href="#projects" className="cursor-pointer">
             Projects
           </a>
-          <a href="#projects" className="cursor-pointer">
+          <a href="#Contact" className="cursor-pointer">
             Contact
           </a>
         </div>
@@ -47,15 +47,16 @@ const Navbar = () => {
           {/* Social Icons */}
           <div className="hidden md:flex gap-4">
             {Socials.map((social) => (
-                  <Link href={social.url} key={social.name} legacyBehavior>
-                  <a target="_blank" rel="noopener noreferrer">
+                  <Link href={social.url} key={social.name} target="_blank" rel="noopener noreferrer">
+                  {/* <a target="_blank" rel="noopener noreferrer"> */}
                     <Image
                       src={social.src}
                       alt={social.name}
+                      key={social.name}
                       width={24}
                       height={24}
                     />
-                  </a>
+                  {/* </a> */}
                 </Link>
             ))}
           </div>

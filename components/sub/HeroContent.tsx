@@ -8,7 +8,8 @@ import {
   slideInFromTop,
 } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
+// import Image from "next/image";
+// import Image from "next/image";
 
 const HeroContent = () => {
   return (
@@ -62,13 +63,17 @@ const HeroContent = () => {
         variants={slideInFromRight(0.8)}
         className="w-full max-w-md flex justify-center items-center"
       >
-        <Image
-          src="/mainIconsdark.svg"
-          alt="work icons"
-          height={450}
-          width={450}
-          className="w-full h-auto object-contain"
-        />
+     <video 
+  src="/hero-video.webm"
+  typeof="video/webm"
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full h-full object-cover"
+  style={{ backgroundColor: "transparent" }}
+/>
+
       </motion.div>
     </motion.div>
   );
