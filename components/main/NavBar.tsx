@@ -3,9 +3,11 @@ import { Socials } from "@/constants/index";
 import Image from "next/image";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
 
   return (
     <nav className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-6 md:px-10">
@@ -45,13 +47,16 @@ const Navbar = () => {
           {/* Social Icons */}
           <div className="hidden md:flex gap-4">
             {Socials.map((social) => (
-              <Image
-                src={social.src}
-                alt={social.name}
-                key={social.name}
-                width={24}
-                height={24}
-              />
+                  <Link href={social.url} key={social.name} legacyBehavior>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={social.src}
+                      alt={social.name}
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                </Link>
             ))}
           </div>
 

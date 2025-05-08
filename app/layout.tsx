@@ -31,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden ${geistMono.variable} antialiased`}
       >
         <StarsCanvas/>
+        <div className="relative z-[20]"/>
         <Navbar/>
         {children}
         {/* <Footer/> */}

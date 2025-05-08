@@ -1,3 +1,10 @@
+
+type SocialLink = {
+  name: string;
+  src: string;
+  url: string;
+};
+
 export const Skill_data = [
     {
       skill_name: "Html 5",
@@ -80,18 +87,21 @@ export const Skill_data = [
   
   ];
   
-  export const Socials = [
+  export const Socials: SocialLink[] = [
     {
-      name: "Discord",
-      src: "/instagram.svg",
+      name: "whatsapp",
+      src: "/whatsapp.svg",
+      url: "https://wa.me/923366056254?text=Hi%20Usman%2C%20I%20saw%20your%20portfolio!",
     },
     {
-      name: "Facebook",
-      src: "/facebook.svg",
+      name: "github",
+      src: "/github.svg",
+      url: "https://github.com/usman-coder18",
     },
     {
-      name: "Instagram",
-      src: "/discord.svg",
+      name: "LinkedIn",
+      src: "/linkedin-new.svg",
+      url: "https://www.linkedin.com/in/muhammad-usman-ab8b7022a",
     },
   ];
   
