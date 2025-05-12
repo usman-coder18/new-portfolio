@@ -1,8 +1,9 @@
-import React from "react";
-// import {motion} from "framer-motion";
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiSocketdotio } from "react-icons/si";
-import { FaNodeJs, FaDatabase } from "react-icons/fa";
+'use client';
 
+import { motion } from 'framer-motion';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiSocketdotio,SiPostgresql, SiDocker } from 'react-icons/si';
+import { FaNodeJs, FaDatabase } from 'react-icons/fa'; // FaNodeJs is for Node.js, FaDatabase for MongoDB
+import { GrNode } from 'react-icons/gr'; // Express icon can be custom, use GrNode as placeholder or use custom images
 interface ProjectCardProps {
   src: string;
   title: string;
@@ -11,120 +12,108 @@ interface ProjectCardProps {
   visitLink: string;
 }
 
+const MotionDiv = motion.div as React.FC<React.HTMLProps<HTMLDivElement>>;
+const MotionA = motion.a as React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
+
 const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, techStack = [], visitLink }) => {
   return (
-    <div
-      className="relative group w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl p-5 rounded-3xl overflow-hidden bg-[#2A2A3D] border border-[#4F4F5D] shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-    //   whileHover={{ scale: 1.05 }}
-    //   whileTap={{ scale: 0.95 }}
-    //   initial={{ opacity: 0 }}
-    //   animate={{ opacity: 1 }}
-    //   transition={{ duration: 0.5 }}
+    <MotionDiv
+    className="relative w-full max-w-md bg-[#2c2f38] p-4 sm:p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
+      // className="relative w-full max-w-md bg-[#2c2f38] p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
     >
       {/* Image Section */}
-      <div className="w-full h-56 sm:h-72 md:h-96 overflow-hidden rounded-3xl">
-        <img
+      <div className="w-full h-40 sm:h-52 mb-3 overflow-hidden rounded-xl relative">
+        <motion.img
           src={src}
           alt={title}
-          className="object-cover w-full h-full rounded-3xl transition-transform duration-300 group-hover:scale-110 group-hover:opacity-90"
-        //   whileHover={{ scale: 1.1 }}
-        //   transition={{ duration: 0.3 }}
+          className="object-cover w-full h-full rounded-xl transition-transform duration-200 transform group-hover:scale-110"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.2 }}
+        />
+        {/* Overlay */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ duration: 0.3 }}
         />
       </div>
 
       {/* Text Content */}
-      <div className="p-5 flex flex-col items-center justify-between h-full space-y-4">
-        <h2
-          className="text-xl sm:text-2xl font-semibold text-white text-center group-hover:text-blue-400 transition-colors duration-300"
-        //   whileHover={{ scale: 1.05 }}
-        >
+      <div className="space-y-3 sm:space-y-4">
+        <motion.h2 className="text-2xl font-bold text-white text-center group-hover:text-blue-400 transition-colors duration-200">
           {title}
-        </h2>
-        <p className="text-gray-300 text-sm sm:text-base leading-relaxed">{description}</p>
+        </motion.h2>
+        <motion.p className="text-gray-300 text-xs sm:text-sm leading-tight">{description}</motion.p>
 
         {/* Tech Stack Icons */}
-        <div className="flex gap-4 text-gray-400 justify-center">
+        <div className="flex gap-3 justify-center text-gray-400">
           {techStack.map((tech, index) => {
             switch (tech) {
-              case "React":
+              case 'React':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <SiReact className="text-3xl hover:text-blue-500 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <SiReact
+                     className="text-xl sm:text-2xl hover:text-blue-500 transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "Next.js":
+                case 'PostgreSQL':
+  return (
+    <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+      <SiPostgresql className="text-2xl hover:text-blue-500 transition-colors duration-200" />
+    </motion.div>
+  );
+case 'Docker':
+  return (
+    <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+      <SiDocker className="text-2xl hover:text-blue-400 transition-colors duration-200" />
+    </motion.div>
+  );
+              case 'Socket.io':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <SiNextdotjs className="text-3xl hover:text-black transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <SiSocketdotio className="text-2xl hover:text-blue-500 transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "TypeScript":
+              case 'Next.js':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <SiTypescript className="text-3xl hover:text-blue-600 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <SiNextdotjs className="text-2xl hover:text-black transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "Tailwind CSS":
+              case 'TypeScript':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <SiTailwindcss className="text-3xl hover:text-teal-500 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <SiTypescript className="text-2xl hover:text-blue-600 transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "Express":
+              case 'Tailwind CSS':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <FaNodeJs className="text-3xl hover:text-green-500 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <SiTailwindcss className="text-2xl hover:text-teal-500 transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "MongoDB":
+              case 'Node.js':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <FaDatabase className="text-3xl hover:text-green-600 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <FaNodeJs className="text-2xl hover:text-green-600 transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "Socket":
+              case 'Express':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <SiSocketdotio className="text-3xl hover:text-blue-600 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <GrNode className="text-2xl hover:text-green-600 transition-colors duration-200" />
+                  </motion.div>
                 );
-              case "Node.js":
+              case 'MongoDB':
                 return (
-                  <div
-                    key={index}
-                    // whileHover={{ scale: 1.2 }}
-                    // transition={{ duration: 0.3 }}
-                  >
-                    <FaNodeJs className="text-3xl hover:text-green-600 transition-colors duration-300" />
-                  </div>
+                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+                    <FaDatabase className="text-2xl hover:text-green-600 transition-colors duration-200" />
+                  </motion.div>
                 );
               default:
                 return null;
@@ -133,17 +122,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, tech
         </div>
 
         {/* Visit Link */}
-        <a
+        <MotionA
           href={visitLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-blue-500 text-white text-lg font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-        //   whileHover={{ scale: 1.05 }}
+          className="inline-block bg-blue-500 text-white py-2 px-6 rounded-lg text-lg font-semibold hover:bg-blue-600 transition-colors duration-200"
+          whileHover={{ scale: 1.05 }}
         >
           Visit Project
-        </a>
+        </MotionA>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 

@@ -57,7 +57,7 @@ export default function ContactForm() {
         draggable
         className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
       />
- <section id="Contact" className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4 py-16 gap-10">
+ <section id="Contact" className=" flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4 py-16 gap-10">
       {/* Left Content with Animation */}
       <motion.div
         initial={{ x: -50, opacity: 0 }}

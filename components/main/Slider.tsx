@@ -3,7 +3,8 @@ import Image from 'next/image'
 import React from 'react'
 // import './slider.css'
 
-const images = ['/1.png', '/2.png', '/3.png', '/3.png', '/4.png', '/5.png', '/6.png', '/7.png']
+const images = ['/1.png', '/2.png', '/3.png', '/docker.webp', '/express.png', '/6.png', '/7.png','/8.png','/react.png','/ts.png','/postger.png'
+  ]
 
 const Slider = () => {
   return (

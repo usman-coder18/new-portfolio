@@ -105,7 +105,7 @@ textarea::placeholder {
 :root {
   --width: 100px;
   --height: 100px;
-  --quantity: 8;
+  --quantity: 11;
 }
 
 .slider-container {

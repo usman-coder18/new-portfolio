@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarBackground";
 import Navbar from "@/components/main/NavBar";
+// import TransitionEffect from "@/components/main/TransitionEffect";
+// import PageTransitionWrapper from "@/components/PageTransitionWrapper";
+import TransitionWrapper from "@/components/PageTransitionWrapper";
 // import Footer from "@/components/main/Footer";
 
 const geistSans = Geist({
@@ -30,11 +33,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden ${geistMono.variable} antialiased`}
       >
-        <StarsCanvas/>
-        <div className="relative z-[20]"/>
-        <Navbar/>
+        <TransitionWrapper>
+        <StarsCanvas />
+        <div className="relative z-[20]" />
+        <Navbar />
         {children}
         {/* <Footer/> */}
+        </TransitionWrapper>
       </body>
     </html>
   );
