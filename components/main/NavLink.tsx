@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import TransitionEffect from "./TransitionEffect";
 
 const NavLink = ({ label, to }: { label: string; to: string }) => {
