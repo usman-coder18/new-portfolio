@@ -70,6 +70,8 @@ export default function ContactForm() {
         </p>
         <div className="hidden md:block mt-10">
           <Image
+            width={500}
+            height={500}
             src="/New message-rafiki.svg"
             alt="Contact illustration"
             className="w-3/4 mx-auto md:mx-0"

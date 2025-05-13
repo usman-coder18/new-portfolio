@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiSocketdotio,SiPostgresql, SiDocker } from 'react-icons/si';
-import { FaNodeJs, FaDatabase } from 'react-icons/fa'; 
-import { GrNode } from 'react-icons/gr'; 
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiSocketdotio, SiPostgresql, SiDocker } from 'react-icons/si';
+import { FaNodeJs, FaDatabase } from 'react-icons/fa';
+import { GrNode } from 'react-icons/gr';
+
 interface ProjectCardProps {
   src: string;
   title: string;
@@ -12,13 +13,27 @@ interface ProjectCardProps {
   visitLink: string;
 }
 
-const MotionDiv = motion.div as React.FC<React.HTMLProps<HTMLDivElement>>;
-const MotionA = motion.a as React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement>>;
+const MotionDiv = motion.div;
+const MotionA = motion.a;
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, techStack = [], visitLink }) => {
+  // Mapping for tech icons and classes to avoid repetition
+  const techIconMap: { [key: string]: React.ReactNode } = {
+    React: <SiReact className="text-2xl hover:text-blue-500 transition-colors duration-200" />,
+    PostgreSQL: <SiPostgresql className="text-2xl hover:text-blue-500 transition-colors duration-200" />,
+    Docker: <SiDocker className="text-2xl hover:text-blue-400 transition-colors duration-200" />,
+    'Socket.io': <SiSocketdotio className="text-2xl hover:text-blue-500 transition-colors duration-200" />,
+    'Next.js': <SiNextdotjs className="text-2xl hover:text-black transition-colors duration-200" />,
+    TypeScript: <SiTypescript className="text-2xl hover:text-blue-600 transition-colors duration-200" />,
+    'Tailwind CSS': <SiTailwindcss className="text-2xl hover:text-teal-500 transition-colors duration-200" />,
+    'Node.js': <FaNodeJs className="text-2xl hover:text-green-600 transition-colors duration-200" />,
+    Express: <GrNode className="text-2xl hover:text-green-600 transition-colors duration-200" />,
+    MongoDB: <FaDatabase className="text-2xl hover:text-green-600 transition-colors duration-200" />,
+  };
+
   return (
     <MotionDiv
-    className="relative w-full max-w-md bg-[#2c2f38] p-4 sm:p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
+      className="relative w-full max-w-md bg-[#2c2f38] p-4 sm:p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -47,73 +62,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, tech
         <motion.p className="text-gray-300 text-xs sm:text-sm leading-tight">{description}</motion.p>
 
         <div className="flex gap-3 justify-center text-gray-400">
-          {techStack.map((tech, index) => {
-            switch (tech) {
-              case 'React':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <SiReact
-                     className="text-xl sm:text-2xl hover:text-blue-500 transition-colors duration-200" />
-                  </motion.div>
-                );
-                case 'PostgreSQL':
-  return (
-    <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-      <SiPostgresql className="text-2xl hover:text-blue-500 transition-colors duration-200" />
-    </motion.div>
-  );
-case 'Docker':
-  return (
-    <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-      <SiDocker className="text-2xl hover:text-blue-400 transition-colors duration-200" />
-    </motion.div>
-  );
-              case 'Socket.io':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <SiSocketdotio className="text-2xl hover:text-blue-500 transition-colors duration-200" />
-                  </motion.div>
-                );
-              case 'Next.js':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <SiNextdotjs className="text-2xl hover:text-black transition-colors duration-200" />
-                  </motion.div>
-                );
-              case 'TypeScript':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <SiTypescript className="text-2xl hover:text-blue-600 transition-colors duration-200" />
-                  </motion.div>
-                );
-              case 'Tailwind CSS':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <SiTailwindcss className="text-2xl hover:text-teal-500 transition-colors duration-200" />
-                  </motion.div>
-                );
-              case 'Node.js':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <FaNodeJs className="text-2xl hover:text-green-600 transition-colors duration-200" />
-                  </motion.div>
-                );
-              case 'Express':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <GrNode className="text-2xl hover:text-green-600 transition-colors duration-200" />
-                  </motion.div>
-                );
-              case 'MongoDB':
-                return (
-                  <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
-                    <FaDatabase className="text-2xl hover:text-green-600 transition-colors duration-200" />
-                  </motion.div>
-                );
-              default:
-                return null;
-            }
-          })}
+          {techStack.map((tech, index) => (
+            <motion.div key={index} whileHover={{ scale: 1.3 }} transition={{ duration: 0.2 }}>
+              {techIconMap[tech] || null}
+            </motion.div>
+          ))}
         </div>
 
         <MotionA

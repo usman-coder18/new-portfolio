@@ -3,17 +3,17 @@
 import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-import { Group } from "three"; 
- // @ts-expect-error: The "maath/random" module does not have type definitions, so we suppress the error.
-import * as random from "maath/random/dist/maath-random.esm";
+// @ts-expect-error: The "maath/random" module does not have type definitions, so we suppress the error.
+
+import * as random from "maath/random/dist/maath-random.esm"; 
+import * as THREE from "three"; // Add this import to resolve the 'THREE' namespace issue
 
 interface StarBackgroundProps {
   [key: string]: any;
 }
 
 const StarBackground = (props: StarBackgroundProps) => {
-  const ref = useRef<Group>(null); 
-
+  const ref = useRef<THREE.Points>(null); // Now 'THREE' is recognized
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(5000), { radius: 1.2 })
   );
@@ -32,7 +32,7 @@ const StarBackground = (props: StarBackgroundProps) => {
         positions={sphere}
         stride={3}
         frustumCulled
-        {...props}  
+        {...props}
       >
         <PointMaterial
           transparent

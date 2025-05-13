@@ -68,7 +68,7 @@ const Projects = () => {
             title={project.title}
             description={project.description}
             techStack={project.techStack}
-            visitLink={project.visitLink}
+            visitLink={project.visitLink ?? ''} 
           />
         ))}
       </div>

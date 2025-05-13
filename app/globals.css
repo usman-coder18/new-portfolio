@@ -97,7 +97,7 @@ textarea:focus {
 input::placeholder,
 textarea::placeholder {
   color: #aaa;
-
+}
 :root {
   --width: 100px;
   --height: 100px;
