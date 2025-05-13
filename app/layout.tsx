@@ -2,13 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarBackground";
-// import StarsCanvas from "@/components/main/StarsCanvasWrapper";
 
 import Navbar from "@/components/main/NavBar";
-// import TransitionEffect from "@/components/main/TransitionEffect";
-// import PageTransitionWrapper from "@/components/PageTransitionWrapper";
 import TransitionWrapper from "@/components/PageTransitionWrapper";
-// import Footer from "@/components/main/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +36,6 @@ export default function RootLayout({
         <div className="relative z-[20]" />
         <Navbar />
         {children}
-        {/* <Footer/> */}
         </TransitionWrapper>
       </body>
     </html>

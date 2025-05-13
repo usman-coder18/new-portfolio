@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FiMail, FiMessageSquare, FiSend, FiUser } from "react-icons/fi";
 import { motion } from "framer-motion";
@@ -59,7 +58,6 @@ export default function ContactForm() {
         className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
       />
  <section id="Contact" className=" flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 px-4 py-16 gap-10">
-      {/* Left Content with Animation */}
       <motion.div
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -79,7 +77,6 @@ export default function ContactForm() {
         </div>
       </motion.div>
 
-      {/* Contact Form with Animation */}
       <motion.form
         onSubmit={handleSubmit(onSubmit)}
         initial={{ x: 50, opacity: 0 }}
@@ -87,7 +84,6 @@ export default function ContactForm() {
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         className="w-full md:w-1/2 max-w-md bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-8 space-y-6 shadow-xl"
       >
-        {/* Name */}
         <div>
           <label className="block text-sm text-white mb-2">Name</label>
           <div className="flex items-center bg-white/10 rounded-xl p-3 ">
@@ -101,7 +97,6 @@ export default function ContactForm() {
           {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>}
         </div>
 
-        {/* Email */}
         <div>
           <label className="block text-sm text-white mb-2">Email</label>
           <div className="flex items-center bg-white/10 rounded-xl p-3 ">
@@ -121,7 +116,6 @@ export default function ContactForm() {
           {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>}
         </div>
 
-        {/* Message */}
         <div>
           <label className="block text-sm text-white mb-2">Message</label>
           <div className="flex items-start bg-white/10 rounded-xl p-3 ">
@@ -136,7 +130,6 @@ export default function ContactForm() {
           {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>}
         </div>
 
-        {/* Submit */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

@@ -8,7 +8,6 @@ const Encryption = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen w-full h-full overflow-hidden">
       
-      {/* Heading */}
       <div className="absolute top-6 z-[5] px-4">
         <motion.div
           variants={slideInFromTop}
@@ -23,7 +22,6 @@ const Encryption = () => {
         </motion.div>
       </div>
 
-      {/* Lock + Label */}
       <div className="flex flex-col items-center justify-center absolute z-[20] top-[35%] translate-y-[-50%] w-auto h-auto px-4">
         <div className="flex flex-col items-center group cursor-pointer w-auto h-auto">
           <Image
@@ -47,14 +45,12 @@ const Encryption = () => {
         </div>
       </div>
 
-      {/* Bottom Description */}
       <div className="absolute z-[20] bottom-4 px-6">
         <div className="cursive text-[16px] sm:text-[18px] md:text-[20px] font-medium text-center text-gray-300">
           Secure your data with end-to-end encryption
         </div>
       </div>
 
-      {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
           loop

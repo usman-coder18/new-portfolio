@@ -1,4 +1,3 @@
-// components/main/TransitionWrapper.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -10,7 +9,7 @@ const TransitionWrapper = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowTransition(false);
-    }, 1000); // Show transition for 1s on page load
+    }, 1000); 
 
     return () => clearTimeout(timeout);
   }, []);

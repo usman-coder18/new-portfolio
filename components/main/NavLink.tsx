@@ -1,8 +1,6 @@
-// components/main/NavLink.tsx
 "use client";
 
 import { useState } from "react";
-// import { useRouter } from "next/navigation";
 import TransitionEffect from "./TransitionEffect";
 
 const NavLink = ({ label, to }: { label: string; to: string }) => {
@@ -16,7 +14,7 @@ const NavLink = ({ label, to }: { label: string; to: string }) => {
       const section = document.querySelector(to);
       section?.scrollIntoView({ behavior: "smooth" });
       setShowTransition(false);
-    }, 800); // match transition duration
+    }, 800); 
   };
 
   return (

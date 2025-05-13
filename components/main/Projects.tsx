@@ -1,6 +1,5 @@
 import React from "react";
 import ProjectCard from "../sub/ProjectCard";
-// import TransitionEffect from "./TransitionEffect";
 
 const projectData = [
  

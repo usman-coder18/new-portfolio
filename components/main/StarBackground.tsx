@@ -3,19 +3,15 @@
 import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-import { Group } from "three"; // Import Group from three.js for typing
- // @ts-expect-error
-    // @ts-expect-error: The "maath/random" module does not have 
+import { Group } from "three"; 
+ // @ts-expect-error: The "maath/random" module does not have type definitions, so we suppress the error.
 import * as random from "maath/random/dist/maath-random.esm";
 
-// Define the props type for the StarBackground component
 interface StarBackgroundProps {
-  // Pass any props expected by Points (for now, just an empty object)
   [key: string]: any;
 }
 
 const StarBackground = (props: StarBackgroundProps) => {
-  // Use Group type for ref as Points will be a child of Group
   const ref = useRef<Group>(null); 
 
   const [sphere] = useState(() =>
@@ -36,7 +32,7 @@ const StarBackground = (props: StarBackgroundProps) => {
         positions={sphere}
         stride={3}
         frustumCulled
-        {...props}  // Pass additional props to Points
+        {...props}  
       >
         <PointMaterial
           transparent

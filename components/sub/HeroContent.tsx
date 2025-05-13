@@ -9,8 +9,6 @@ import {
 } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-// import Image from "next/image";
-// import Image from "next/image";
 
 const HeroContent = () => {
   return (
@@ -19,7 +17,6 @@ const HeroContent = () => {
       animate="visible"
       className="flex flex-col lg:flex-row items-center justify-center px-6 sm:px-10 lg:px-20 mt-32 sm:mt-36 w-full z-[20] gap-10"
     >
-      {/* Text Section */}
       <div id="about-me" className="w-full max-w-2xl flex flex-col gap-5 justify-center text-start">
         <motion.div
           variants={slideInFromTop}
@@ -59,7 +56,6 @@ const HeroContent = () => {
         </motion.a>
       </div>
 
-      {/* Image Section */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="w-full max-w-md flex justify-center items-center"

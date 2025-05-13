@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiSocketdotio,SiPostgresql, SiDocker } from 'react-icons/si';
-import { FaNodeJs, FaDatabase } from 'react-icons/fa'; // FaNodeJs is for Node.js, FaDatabase for MongoDB
-import { GrNode } from 'react-icons/gr'; // Express icon can be custom, use GrNode as placeholder or use custom images
+import { FaNodeJs, FaDatabase } from 'react-icons/fa'; 
+import { GrNode } from 'react-icons/gr'; 
 interface ProjectCardProps {
   src: string;
   title: string;
@@ -19,13 +19,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, tech
   return (
     <MotionDiv
     className="relative w-full max-w-md bg-[#2c2f38] p-4 sm:p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
-      // className="relative w-full max-w-md bg-[#2c2f38] p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Image Section */}
       <div className="w-full h-40 sm:h-52 mb-3 overflow-hidden rounded-xl relative">
         <motion.img
           src={src}
@@ -34,7 +32,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, tech
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2 }}
         />
-        {/* Overlay */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"
           initial={{ opacity: 0 }}
@@ -43,14 +40,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ src, title, description, tech
         />
       </div>
 
-      {/* Text Content */}
       <div className="space-y-3 sm:space-y-4">
         <motion.h2 className="text-2xl font-bold text-white text-center group-hover:text-blue-400 transition-colors duration-200">
           {title}
         </motion.h2>
         <motion.p className="text-gray-300 text-xs sm:text-sm leading-tight">{description}</motion.p>
 
-        {/* Tech Stack Icons */}
         <div className="flex gap-3 justify-center text-gray-400">
           {techStack.map((tech, index) => {
             switch (tech) {
@@ -121,7 +116,6 @@ case 'Docker':
           })}
         </div>
 
-        {/* Visit Link */}
         <MotionA
           href={visitLink}
           target="_blank"

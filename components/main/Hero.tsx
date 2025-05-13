@@ -1,7 +1,6 @@
 import React from 'react'
 import HeroContent from '../sub/HeroContent'
 import Rotation from './Rotation'
-// import Rotation from './Rotation'
 const Hero = () => {
   return (
     <div className='relative flex flex-col h-full w-full  '>
@@ -17,7 +16,6 @@ const Hero = () => {
         </video>
         <HeroContent/>
 
-          {/* <Rotation/> */}
 
     </div>
   )
