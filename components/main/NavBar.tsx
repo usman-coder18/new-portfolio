@@ -92,18 +92,19 @@ const Navbar = () => {
       <div
         className={`md:hidden mt-2 bg-[#0a0a23] border-t border-[#2A0E61] rounded-md py-4 px-4 space-y-3 text-gray-200 transition-all duration-300 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}
       >
-        <a href="#about-me" className="block hover:text-[#7042f8]" onClick={() => setIsOpen(false)}>
-          About me
-        </a>
-        <a href="#skills" className="block hover:text-[#7042f8]" onClick={() => setIsOpen(false)}>
-          Skills
-        </a>
-        <a href="#projects" className="block hover:text-[#7042f8]" onClick={() => setIsOpen(false)}>
-          Projects
-        </a>
-        <a href="#Contact" className="block hover:text-[#7042f8]" onClick={() => setIsOpen(false)}>
-          Contact
-        </a>
+        <div className="block hover:text-[#7042f8]">
+            <NavLink    label="About" to="#about-me" />
+        </div>
+        <div className="block hover:text-[#7042f8]">
+          {/* Skills */}
+            <NavLink label="Skills" to="#skills" />
+        </div>
+        <div  className="block hover:text-[#7042f8]" >
+           <NavLink label="Projects" to="#projects" />
+        </div>
+        <div className="block hover:text-[#7042f8]">
+            <NavLink label="Contact" to="#Contact" /> 
+        </div>
         <div className="flex gap-4 mt-3">
           {Socials.map((social) => (
             <Image

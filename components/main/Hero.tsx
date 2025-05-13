@@ -8,7 +8,7 @@ const Hero = () => {
     <div className="absolute top-0 right-0 z-20 mt-8 ">
         <Rotation />
       </div>
-        <video src=""
+        <video 
         autoPlay
         muted
         loop

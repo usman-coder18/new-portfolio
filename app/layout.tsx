@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarBackground";
+// import StarsCanvas from "@/components/main/StarsCanvasWrapper";
+
 import Navbar from "@/components/main/NavBar";
 // import TransitionEffect from "@/components/main/TransitionEffect";
 // import PageTransitionWrapper from "@/components/PageTransitionWrapper";
