@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FiMail, FiMessageSquare, FiSend, FiUser } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
+import Image from "next/image";
 
 
 type FormData = {
@@ -67,10 +68,10 @@ export default function ContactForm() {
       >
         <h2 className="text-4xl md:text-5xl font-bold text-white md:mt-7">Let’s Connect</h2>
         <p className="text-gray-300 text-lg">
-          Have a project in mind, or just want to say hello? Fill out the form and I'll get back to you soon.
+          Have a project in mind, or just want to say hello? Fill out the form and I&apos;ll get back to you soon.
         </p>
         <div className="hidden md:block mt-10">
-          <img
+          <Image
             src="/New message-rafiki.svg"
             alt="Contact illustration"
             className="w-3/4 mx-auto md:mx-0"
