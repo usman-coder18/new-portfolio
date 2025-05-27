@@ -25,7 +25,7 @@ const projectData = [
     visitLink: "https://quickthoughts-production.up.railway.app/",
   },
   {
-    src: "/Screenshot 2025-02-10 233726.png",
+    src: "/pizza.png",
     title: "Pizza Shop",
     description: "A stylish and modern pizza ordering platform where users can explore a variety of pizzas, customize their orders, and enjoy a seamless checkout experience.",
     techStack: ["Next.js", "Tailwind CSS","PostgreSQL","Docker"],
