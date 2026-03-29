@@ -4,14 +4,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true, // Enforces React strict mode
 
   // Custom Webpack configuration (optional, only if necessary)
-  webpack(config, { isServer }) {
-    // Modify server-side Webpack config if necessary
-    if (!isServer) {
-      config.resolve.fallback = {
-        fs: false,
-      };
-    }
-
+  webpack(config: any) {
+    config.resolve.fallback = { fs: false };
     return config;
   },
 
@@ -22,7 +16,12 @@ const nextConfig: NextConfig = {
 
   // Image configuration (adjust if you're using external images)
   images: {
-    domains: ['yourdomain.com'], // Allow external domains for images
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'yourdomain.com',
+      },
+    ],
   },
 };
 

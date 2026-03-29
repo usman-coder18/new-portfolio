@@ -67,7 +67,7 @@ export const Skill_data = [
     {
       name: "github",
       src: "/github.svg",
-      url: "https://github.com/usman-coder18",
+      url: "https://github.com/UsmanRafique78",
     },
     {
       name: "LinkedIn",
